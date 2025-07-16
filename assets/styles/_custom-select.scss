@@ -1,0 +1,71 @@
+@import "variables";
+
+.currency-select {
+  position: relative;
+  display: inline-block;
+  font-family: "Riffic", sans-serif;
+  font-size: 14px;
+  color: $text-secondary-color;
+
+  .currency-toggle {
+    background: transparent;
+    padding: 8px 24px 8px 8px;
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $text-secondary-color;
+    }
+  }
+
+  .currency-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: $background-main-color;
+    border: 1px solid $text-secondary-color;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+
+    li {
+      padding: 8px 24px 8px 8px;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: $text-main-color;
+      background: $background-option-hover-color;
+      margin: 2px;
+
+      &:hover {
+        background: $background-option-color;
+        color: $text-main-color;
+      }
+
+      &.selected::after {
+        content: '';
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 8px;
+        background: url('data:image/svg+xml;utf8,<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.58333 8L12 2.66667L9.77778 0L4.58333 5.16667L2 2L0 4.66667L4.58333 8Z" fill="white"/></svg>') no-repeat center;
+      }
+    }
+  }
+
+  &.open .currency-menu {
+    display: block;
+  }
+}
